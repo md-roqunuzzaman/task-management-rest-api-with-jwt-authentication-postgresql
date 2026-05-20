@@ -1,6 +1,7 @@
 import { pool } from "../../../db";
 import bcrypt from "bcrypt";
-const createUserInDB = async (payload: any) => {
+import type { IUser } from "./user.interface";
+const createUserInDB = async (payload: IUser) => {
   const { name, email, password, role } = payload;
   const hashPass = await bcrypt.hash(password, 10);
   const result = await pool.query(
@@ -26,7 +27,7 @@ const getSingleUserFromDB = async (id: string) => {
   return result;
 };
 
-const updateUserFromDB = async (id: string, payload: any) => {
+const updateUserFromDB = async (id: string, payload: IUser) => {
   const { name, email, password, role } = payload;
   const result = pool.query(
     `UPDATE users 

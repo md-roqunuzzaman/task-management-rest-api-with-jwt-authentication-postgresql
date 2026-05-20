@@ -7,5 +7,7 @@ dotenv.config({
 const config = {
   port: process.env.PORT || 3000,
   connectionSecret: process.env.connectionStr,
+  secret: process.env.jwtSecret,
+  refreshSecret: process.env.refreshTkn,
 };
 export default config;

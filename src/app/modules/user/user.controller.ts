@@ -12,7 +12,7 @@ const createUser = async (req: Request, res: Response) => {
   } catch (error: any) {
     res.status(500).json({
       message: error.message,
-      data: error,
+      error: error,
     });
   }
 };
@@ -28,7 +28,7 @@ const getAllUsers = async (req: Request, res: Response) => {
   } catch (error: any) {
     res.status(500).json({
       message: error.message,
-      data: error,
+      error: error,
     });
   }
 };
@@ -52,7 +52,7 @@ const getSingleUser = async (req: Request, res: Response) => {
   } catch (error: any) {
     res.status(500).json({
       message: error.message,
-      data: error,
+      error: error,
     });
   }
 };
@@ -75,7 +75,7 @@ const updateUser = async (req: Request, res: Response) => {
   } catch (error: any) {
     res.status(500).json({
       message: error.message,
-      data: error,
+      error: error,
     });
   }
 };
@@ -99,7 +99,7 @@ const deleteUser = async (req: Request, res: Response) => {
     res.status(500).json({
       success: false,
       message: error.message,
-      data: error,
+      error: error,
     });
   }
 };

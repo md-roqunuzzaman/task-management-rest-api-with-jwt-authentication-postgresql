@@ -18,6 +18,18 @@ export const initDB = async () => {
             )
             `,
     );
+
+    await pool.query(
+      `CREATE TABLE IF NOT EXISTS tasks (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(100) NOT NULL,
+  description TEXT,
+  status VARCHAR(20) DEFAULT 'pending',
+  user_id INT REFERENCES users(id) ON DELETE CASCADE,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+        `,
+    );
     console.log("database connected successfully");
   } catch (error) {
     console.log(error);
